@@ -14,8 +14,8 @@ MClick(x,y)
 	Sleep, 500
 }
 
-g_iter = 2
-g_stage = 3
+g_iter = 0
+g_stage = 12
 
 MCliskStage(stage)
 {
@@ -146,9 +146,9 @@ Loop,
 		ImageSearch, FoundX, FoundY, 500, 0, 900, 200, *50 last.png
 		if ErrorLevel = 0
 		{
-			Loop 6,
+			Loop 25,
 			{
-				Sleep, 500
+				Sleep, 50
 				WinFocus()
 				ImageSearch, FoundX, FoundY, 960,45,1010,95, *50 item.png
 				if ErrorLevel = 0
@@ -158,8 +158,9 @@ Loop,
 			}
 			if g_item = 0
 			{
-				Loop,
+				Loop 100,
 				{
+					Sleep, 100
 					WinFocus()
 					MClick(1240,70)
 					ImageSearch, FoundX, FoundY, 700, 300, 900, 500, *50 end_battle.png

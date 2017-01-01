@@ -17,7 +17,7 @@ MClick(x,y)
 g_iter = 0
 Loop,
 {	
-	if g_iter = 29
+	if g_iter = 7
 	{
 		break
 	}
