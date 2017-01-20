@@ -6,6 +6,14 @@ WinFocus()
     WinWaitActive, RedKnights
 }
 
+StopApp()
+{
+	if GetKeyState("x")
+	{
+		ExitApp
+	}
+} 
+
 MClick(x,y)
 {
 	MouseMove, x, y
@@ -15,11 +23,11 @@ MClick(x,y)
 }
 
 g_iter = 0
-g_stage = 15
+g_stage = 18
 
 MCliskStage(stage)
 {
-	if stage = 1
+	if stage = 1 ; 5-1
 	{
 		x = 249
 		y = 173
@@ -94,25 +102,82 @@ MCliskStage(stage)
 		x = 230
 		y = 190
 	}
+	if stage = 16 ; 8-1
+	{
+		x = 410
+		y = 180
+	}
+	if stage = 17
+	{
+		x = 520
+		y = 245
+	}
+	if stage = 18
+	{
+		x = 355
+		y = 300
+	}
+	if stage = 19
+	{
+		x = 140
+		y = 280
+	}
+	if stage = 20
+	{
+		x = 236
+		y = 187
+	}
 	MClick(x,y)
 }
 
 Loop,
 {
-	if g_iter = 3
+	if g_stage = 2 
 	{
-		g_iter = 0
-		Loop,
+		g_stage := g_stage + 1
+		Sleep 3000
+		MClick(630, 145) 
+	}
+	if g_stage = 4 
+	{
+		g_stage := g_stage + 1
+		Sleep 3000
+        MClick(630, 145) 
+	}
+	if g_stage = 8 
+	{
+		g_stage := g_stage + 2
+		 Sleep 3000
+         MClick(630, 145)
+		 Sleep 1000
+         MClick(630, 145) 
+     }
+	if g_stage = 11 
+	{
+		g_stage := g_stage + 3
+					 Sleep 3000
+	                 MClick(630, 145)
+					 Sleep 1000
+	                 MClick(630, 145)
+					 Sleep 1000
+	                 MClick(630, 145)
+	}
+	if g_stage = 15 
+	{
+		g_stage := g_stage + 1
+					 Sleep 3000
+	                 MClick(630, 145)
+	}
+	Loop,
+	{
+		Sleep, 2000
+		WinFocus()
+		ImageSearch, FoundX, FoundY, 590, 335, 640, 385, *50 prepare.png
+		if ErrorLevel = 0
 		{
-			Sleep, 2000
 			WinFocus()
-			ImageSearch, FoundX, FoundY, 590, 335, 640, 385, *50 prepare.png
-			if ErrorLevel = 0
-			{
-				WinFocus()
-				MClick(626,371)
-				break
-			}
+			MClick(626,371)
+			break
 		}
 	}
 	Loop,
@@ -147,7 +212,7 @@ Loop,
 		ImageSearch, FoundX, FoundY, 200, 30, 400, 80, *50 last.png
 		if ErrorLevel = 0
 		{
-			Loop 15,
+			Loop 1,
 			{
 				WinFocus()
 				ImageSearch, FoundX, FoundY, 460,30,510,80, *50 item.png
@@ -161,7 +226,7 @@ Loop,
 				{
 					if g_kujak = 0
 					{
-						g_item = 0
+						;g_item = 0
 					}
 				}
 			}
@@ -187,8 +252,6 @@ Loop,
 				MCliskStage(g_stage)
 				
 				Sleep, 2000
-				MClick(626,371)
-				Sleep, 1000
 				break
 			}
 			if (g_item = 1)
@@ -207,6 +270,7 @@ Loop,
 							WinFocus()
 							MClick(490,378)
 							g_stage := g_stage + 1 ; 2 ~ 11
+							g_iter = 0
 							break
 						}
 						Sleep, 2000
@@ -215,7 +279,7 @@ Loop,
 						MClick(393,378)
 						break
 					}
-					ImageSearch, FoundX, FoundY, 465, 345, 515, 395, *50 end2.png
+					ImageSearch, FoundX, FoundY, 465, 345, 515, 395, *50 end.png
 					if ErrorLevel = 0
 					{
 						g_iter := g_iter - 1
@@ -227,7 +291,7 @@ Loop,
 					WinFocus()
 					MClick(290,320)
 				}
-				break				
+				break
 			}
 		}
 		Sleep, 2000
@@ -240,12 +304,9 @@ Loop,
 			MClick(340,370)
 		}
 	}
-	if g_stage = 12
+	if g_stage = 21
 	{
 		break
 	}
-	if g_stage = 16
-	{
-		break
-	}
+	StopApp()
 }
