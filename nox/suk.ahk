@@ -22,8 +22,8 @@ MClick(x,y)
 	Sleep, 500
 }
 
-g_iter = 0
-g_stage = 18
+g_iter = 1
+g_stage = 6
 
 MCliskStage(stage)
 {
@@ -154,10 +154,8 @@ Loop,
      }
 	if g_stage = 11 
 	{
-		g_stage := g_stage + 3
+		g_stage := g_stage + 2
 					 Sleep 3000
-	                 MClick(630, 145)
-					 Sleep 1000
 	                 MClick(630, 145)
 					 Sleep 1000
 	                 MClick(630, 145)

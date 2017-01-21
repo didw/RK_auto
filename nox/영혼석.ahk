@@ -25,7 +25,7 @@ MCliskStage(stage)
 	; 3-3
 	; 3-4
 	; 4-3
-	; 7-3
+	; 7-3, pass
 
 	if stage = 2
 	{
@@ -147,7 +147,7 @@ Loop,
 		Sleep, 2000
 		MClick(340,370)
 	}
-	if g_stage = 7
+	if g_stage = 6
 	{
 		break
 	}
