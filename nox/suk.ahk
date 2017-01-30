@@ -2,8 +2,8 @@
 SetTitleMatchMode, 2
 WinFocus()
 {		
-    WinActivate, RedKnights
-    WinWaitActive, RedKnights
+    WinActivate, Redknights
+    WinWaitActive, Redknights
 }
 
 StopApp()
@@ -22,8 +22,8 @@ MClick(x,y)
 	Sleep, 500
 }
 
-g_iter = 1
-g_stage = 6
+g_iter = 0
+g_stage = 5
 
 MCliskStage(stage)
 {
@@ -138,33 +138,33 @@ Loop,
 		Sleep 3000
 		MClick(630, 145) 
 	}
-	if g_stage = 4 
+	if g_stage = 4
 	{
 		g_stage := g_stage + 1
 		Sleep 3000
         MClick(630, 145) 
 	}
-	if g_stage = 8 
-	{
-		g_stage := g_stage + 2
-		 Sleep 3000
-         MClick(630, 145)
-		 Sleep 1000
-         MClick(630, 145) 
-     }
-	if g_stage = 11 
-	{
-		g_stage := g_stage + 2
-					 Sleep 3000
-	                 MClick(630, 145)
-					 Sleep 1000
-	                 MClick(630, 145)
-	}
-	if g_stage = 15 
+	if g_stage = 7
 	{
 		g_stage := g_stage + 1
-					 Sleep 3000
-	                 MClick(630, 145)
+		Sleep 3000
+        MClick(630, 145)
+    }
+	if g_stage = 9
+	{
+		g_stage := g_stage + 6
+		Sleep 3000
+		MClick(630, 145)
+		Sleep 1000
+		MClick(630, 145)
+		Sleep 1000
+		MClick(630, 145)
+		Sleep 1000
+		MClick(630, 145)
+		Sleep 1000
+		MClick(630, 145)
+		Sleep 1000
+		MClick(630, 145)
 	}
 	Loop,
 	{
@@ -275,6 +275,9 @@ Loop,
 						WinFocus()
 						MClick(393,378)
 						MClick(393,378)
+						Sleep, 1000
+						MClick(393,378)
+						MClick(393,378)
 						break
 					}
 					ImageSearch, FoundX, FoundY, 465, 345, 515, 395, *50 end.png
@@ -302,7 +305,7 @@ Loop,
 			MClick(340,370)
 		}
 	}
-	if g_stage = 21
+	if g_stage = 22
 	{
 		break
 	}

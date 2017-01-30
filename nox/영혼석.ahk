@@ -2,8 +2,8 @@
 SetTitleMatchMode, 2
 WinFocus()
 {		
-    WinActivate, RedKnights
-    WinWaitActive, RedKnights
+    WinActivate, Redknights
+    WinWaitActive, Redknights
 }
 
 MClick(x,y)
@@ -14,8 +14,8 @@ MClick(x,y)
 	Sleep, 500
 }
 
-g_iter = 0
-g_stage = 1
+g_iter = 2
+g_stage = 3
 
 MCliskStage(stage)
 {
@@ -24,6 +24,7 @@ MCliskStage(stage)
 	; 2-2
 	; 3-3
 	; 3-4
+	; 4-2
 	; 4-3
 	; 7-3, pass
 
@@ -55,10 +56,8 @@ MCliskStage(stage)
 		MClick(630, 145)
 		Sleep, 1000
 		MClick(630, 145)
-		Sleep, 1000
-		MClick(630, 145)
 	}
-	if stage = 6
+	if stage = 7
 	{
 		Sleep, 3000
 		MClick(630, 145)
@@ -95,6 +94,10 @@ Loop,
 {
 	if g_iter = 3
 	{
+		if g_stage = 7
+		{
+			break
+		}
 		MCliskStage(g_stage)
 		g_stage := g_stage + 1
 		g_iter = 0
@@ -146,9 +149,5 @@ Loop,
 		}
 		Sleep, 2000
 		MClick(340,370)
-	}
-	if g_stage = 6
-	{
-		break
 	}
 }
